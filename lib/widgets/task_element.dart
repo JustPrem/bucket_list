@@ -9,7 +9,7 @@ import 'package:bucket_list/providers/task_provider.dart';
 // Data Models.
 import 'package:bucket_list/data_models/task.dart';
 
-// External/
+// External
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // ---- Widget - Task Element ----
@@ -55,7 +55,19 @@ class TaskElement extends ConsumerWidget
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children:
         [
-          Text("ID: ${task.id} - ${task.taskName}", style: Theme.of(context).textTheme.titleLarge),
+          IconButton(icon: Icon(Icons.delete_forever_rounded), onPressed: () { ref.read(taskListProvider.notifier).removeTask(task); }),
+          Expanded
+          (
+            child: Stack
+            (
+              alignment: Alignment.center,
+              children:
+              [
+                Text("ID: ${task.id} - ${task.taskName}", style: Theme.of(context).textTheme.titleLarge),
+                if (task.isCompleted) Container(height: 2, color: Colors.red,)
+              ]
+            )
+          ),
           IconButton(icon: Icon(task.isCompleted? Icons.check_box : Icons.check_box_outline_blank), onPressed: () { ref.read(taskListProvider.notifier).completeTask(task); }),
         ]
       ),

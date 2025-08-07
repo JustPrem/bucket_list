@@ -9,6 +9,7 @@ import 'package:bucket_list/data_models/settings.dart';
 
 // Widgets.
 import 'package:bucket_list/widgets/task_element.dart';
+import 'package:bucket_list/widgets/add_task_dialog.dart';
 
 // Providers.
 import 'package:bucket_list/providers/task_provider.dart';
@@ -42,7 +43,15 @@ class RouteHome extends ConsumerWidget
             // Title.
             Expanded(child: Center(child: Text("Bucket List", style: Theme.of(context).textTheme.titleLarge))), 
             // Right-side buttons.
-            IconButton(icon: Icon(Icons.add), onPressed: () { ref.read(taskListProvider.notifier).addTask(Task(id: allTasks.length + 1, taskName: "Test Task")); }),
+            IconButton(icon: Icon(Icons.add), onPressed: ()
+            {
+              // Open a dialog to add a new task.
+              showDialog
+              (
+                context: context,
+                builder: (context) => AddTaskDialog(id: allTasks.length + 1),
+              );
+            }),
           ]
         )
       ),

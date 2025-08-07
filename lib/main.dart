@@ -44,6 +44,9 @@ class MainApp extends ConsumerWidget
     // Watch the provider.
     return MaterialApp
     (
+      // Debug Banner go brrrrrr.
+      debugShowCheckedModeBanner: false,
+
       // Theme.
       theme:      ThemeData.light(useMaterial3: true),
       darkTheme:  ThemeData.dark(useMaterial3: true),
