@@ -63,7 +63,7 @@ class TaskElement extends ConsumerWidget
               alignment: Alignment.center,
               children:
               [
-                Text("${task.taskName} (ID: ${task.id})", style: Theme.of(context).textTheme.titleMedium),
+                Text(task.taskName, style: Theme.of(context).textTheme.titleMedium),
                 if (task.isCompleted) Container(height: 2, color: Theme.of(context).colorScheme.onSurfaceVariant)
               ]
             )
