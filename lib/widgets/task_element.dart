@@ -32,7 +32,6 @@ class TaskElement extends ConsumerWidget
     return Container
     (
       // Styling.
-      padding: const EdgeInsets.all(10),
       margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       decoration: BoxDecoration
       (
@@ -52,6 +51,7 @@ class TaskElement extends ConsumerWidget
       // Contents.
       child: Row
       (
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children:
         [
@@ -63,8 +63,8 @@ class TaskElement extends ConsumerWidget
               alignment: Alignment.center,
               children:
               [
-                Text("ID: ${task.id} - ${task.taskName}", style: Theme.of(context).textTheme.titleLarge),
-                if (task.isCompleted) Container(height: 2, color: Colors.red,)
+                Text("${task.taskName} (ID: ${task.id})", style: Theme.of(context).textTheme.titleMedium),
+                if (task.isCompleted) Container(height: 2, color: Theme.of(context).colorScheme.onSurfaceVariant)
               ]
             )
           ),

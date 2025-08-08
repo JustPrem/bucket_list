@@ -49,7 +49,7 @@ class RouteHome extends ConsumerWidget
               showDialog
               (
                 context: context,
-                builder: (context) => AddTaskDialog(id: allTasks.length + 1),
+                builder: (context) => AddTaskDialog(),
               );
             }),
           ]

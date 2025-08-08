@@ -53,9 +53,26 @@ class TaskList extends _$TaskList
     }
 
     // Set the state.
-    state = tasks;
+    state = tasks;   
+  }
+
+  /// Get the next valid ID.
+  int getNextID()
+  {
+    // Get the list of tasks.
+    List<Task> tasks = state;
+
+    // Create a variable to store the ID.
+    int id = 0;
+
+    // look for the next valid ID.
+    while(tasks.any((task) => task.id == id))
+    {
+      id++;
+    }
     
+    // Get the next valid id.
+    return id;
   }
 }
-
 

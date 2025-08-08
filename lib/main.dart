@@ -41,7 +41,6 @@ class MainApp extends ConsumerWidget
     // Get settings.
     Settings settings = ref.watch(settingsStateProvider);
 
-    // Watch the provider.
     return MaterialApp
     (
       // Debug Banner go brrrrrr.

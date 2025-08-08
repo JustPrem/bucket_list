@@ -16,11 +16,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class AddTaskDialog extends ConsumerStatefulWidget
 {
   // Constructor.
-  AddTaskDialog({required this.id, super.key});
+  const AddTaskDialog({super.key});
 
   // Variables.
-  final int id;
-
   @override
   ConsumerState<ConsumerStatefulWidget> createState() => _AddTaskDialogState();
 }
@@ -80,7 +78,7 @@ class _AddTaskDialogState extends ConsumerState<AddTaskDialog>
             if (_formKey.currentState!.validate())
             {
               // Create the task
-              ref.read(taskListProvider.notifier).addTask(Task(id: widget.id, taskName: _taskNameController.text));
+              ref.read(taskListProvider.notifier).addTask(Task(id: ref.read(taskListProvider.notifier).getNextID(), taskName: _taskNameController.text));
 
               // Close this dialog.
               Navigator.of(context).pop();
