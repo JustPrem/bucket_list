@@ -1,3 +1,8 @@
+// Load properties file, this should be created each time.
+import java.util.Properties
+val localProperties = Properties()
+localProperties.load(file("android.properties").inputStream())
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -21,7 +26,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.bucket_list"
+        applicationId = "com.codeprem.bucket_list"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion
@@ -30,11 +35,22 @@ android {
         versionName = flutter.versionName
     }
 
+	signingConfigs {
+		create("release") {
+			keyAlias = localProperties.getProperty("keyAlias")
+			keyPassword = localProperties.getProperty("storePassword")
+			storeFile = file("bucketlist-release-key.jks")
+			storePassword = localProperties.getProperty("storePassword")
+		}
+	}
+
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+            signingConfig = signingConfigs.getByName("release")
+			isMinifyEnabled = false
+			isShrinkResources = false
         }
     }
 }
