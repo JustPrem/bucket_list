@@ -1,5 +1,5 @@
 name: bucket_list
-description: "A new Flutter project."
+description: "A to-do app built in flutter."
 publish_to: 'none'
 version: 0.1.0
 
@@ -21,6 +21,11 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   riverpod_generator: ^2.6.5
   build_runner: ^2.5.4
+  flutter_launcher_icons: ^0.14.4
 
 flutter:
   uses-material-design: true
+
+flutter_launcher_icons:
+  android: true
+  image_path: "assets/icon.png"
