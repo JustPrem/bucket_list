@@ -69,6 +69,13 @@ class _AddTaskDialogState extends ConsumerState<AddTaskDialog>
       ),
       actions:
       [
+        // Cancel button.
+        TextButton
+        (
+          onPressed: () { Navigator.of(context).pop(); },
+          child: Text("Cancel"),
+        ),
+
         // Submit button.
         TextButton
         (
@@ -86,12 +93,6 @@ class _AddTaskDialogState extends ConsumerState<AddTaskDialog>
           },
           child: Text("Submit"),
         ),
-        // Cancel button.
-        TextButton
-        (
-          onPressed: () { Navigator.of(context).pop(); },
-          child: Text("Cancel"),
-        )
       ]
     );
   }
