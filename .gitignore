@@ -52,3 +52,6 @@ app.*.map.json
 
 # Hide properties file, used for storing the keystore password and alias.
 android/app/android.properties
+
+# Ignore the pubspec locking file.
+pubspec.lock
